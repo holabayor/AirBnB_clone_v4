@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="airbnb-clone---the-console">AirBnB Clone - The Console</h1>
+<p>The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.</p>
+<h4 id="functionalities-of-this-command-interpreter">Functionalities of this command interpreter:</h4>
+<ul>
+<li>Create a new object (ex: a new User or a new Place)</li>
+<li>Retrieve an object from a file, a database etc...</li>
+<li>Do operations on objects (count, compute stats, etc...)</li>
+<li>Update attributes of an object</li>
+<li>Destroy an object</li>
+</ul>
+<h2 id="table-of-content">Table of Content</h2>
+<ul>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#file-descriptions">File Descriptions</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#examples-of-use">Examples of use</a></li>
+<li><a href="#bugs">Bugs</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="environment">Environment</h2>
+<p>This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)</p>
+<h2 id="installation">Installation</h2>
+<ul>
+<li>Clone this repository: <code>git clone &quot;https://github.com/alexaorrico/AirBnB_clone.git&quot;</code></li>
+<li>Access AirBnb directory: <code>cd AirBnB_clone</code></li>
+<li>Run hbnb(interactively): <code>./console</code> and enter command</li>
+<li>Run hbnb(non-interactively): <code>echo &quot;&lt;command&gt;&quot; | ./console.py</code></li>
+</ul>
+<h2 id="file-descriptions">File Descriptions</h2>
+<p><a href="console.py">console.py</a> - the console contains the entry point of the command interpreter.
+List of commands this console current supports:</p>
+<ul>
+<li><code>EOF</code> - exits console</li>
+<li><code>quit</code> - exits console</li>
+<li><code>&lt;emptyline&gt;</code> - overwrites default emptyline method and does nothing</li>
+<li><code>create</code> - Creates a new instance of<code>BaseModel</code>, saves it (to the JSON file) and prints the id</li>
+<li><code>destroy</code> - Deletes an instance based on the class name and id (save the change into the JSON file).</li>
+<li><code>show</code> - Prints the string representation of an instance based on the class name and id.</li>
+<li><code>all</code> - Prints all string representation of all instances based or not on the class name.</li>
+<li><code>update</code> - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).</li>
+</ul>
+<h4 id="models-directory-contains-classes-used-for-this-project"><code>models/</code> directory contains classes used for this project:</h4>
+<p><a href="/models/base_model.py">base_model.py</a> - The BaseModel class from which future classes will be derived</p>
+<ul>
+<li><code>def __init__(self, *args, **kwargs)</code> - Initialization of the base model</li>
+<li><code>def __str__(self)</code> - String representation of the BaseModel class</li>
+<li><code>def save(self)</code> - Updates the attribute <code>updated_at</code> with the current datetime</li>
+<li><code>def to_dict(self)</code> - returns a dictionary containing all keys/values of the instance</li>
+</ul>
+<p>Classes inherited from Base Model:</p>
+<ul>
+<li><a href="/models/amenity.py">amenity.py</a></li>
+<li><a href="/models/city.py">city.py</a></li>
+<li><a href="/models/place.py">place.py</a></li>
+<li><a href="/models/review.py">review.py</a></li>
+<li><a href="/models/state.py">state.py</a></li>
+<li><a href="/models/user.py">user.py</a></li>
+</ul>
+<h4 id="modelsengine-directory-contains-file-storage-class-that-handles-jason-serialization-and-deserialization"><code>/models/engine</code> directory contains File Storage class that handles JASON serialization and deserialization :</h4>
+<p><a href="/models/engine/file_storage.py">file_storage.py</a> - serializes instances to a JSON file &amp; deserializes back to instances</p>
+<ul>
+<li><code>def all(self)</code> - returns the dictionary __objects</li>
+<li><code>def new(self, obj)</code> - sets in __objects the obj with key <obj class name>.id</li>
+<li><code>def save(self)</code> - serializes __objects to the JSON file (path: __file_path)</li>
+<li><code> def reload(self)</code> -  deserializes the JSON file to __objects</li>
+</ul>
+<h4 id="tests-directory-contains-all-unit-test-cases-for-this-project"><code>/tests</code> directory contains all unit test cases for this project:</h4>
+<p><a href="/tests/test_models/test_base_model.py">/test_models/test_base_model.py</a> - Contains the TestBaseModel and TestBaseModelDocs classes
+TestBaseModelDocs class:</p>
+<ul>
+<li><code>def setUpClass(cls)</code>- Set up for the doc tests</li>
+<li><code>def test_pep8_conformance_base_model(self)</code> - Test that models/base_model.py conforms to PEP8</li>
+<li><code>def test_pep8_conformance_test_base_model(self)</code> - Test that tests/test_models/test_base_model.py conforms to PEP8</li>
+<li><code>def test_bm_module_docstring(self)</code> - Test for the base_model.py module docstring</li>
+<li><code>def test_bm_class_docstring(self)</code> - Test for the BaseModel class docstring</li>
+<li><code>def test_bm_func_docstrings(self)</code> - Test for the presence of docstrings in BaseModel methods</li>
+</ul>
+<p>TestBaseModel class:</p>
+<ul>
+<li><code>def test_is_base_model(self)</code> - Test that the instatiation of a BaseModel works</li>
+<li><code>def test_created_at_instantiation(self)</code> - Test created_at is a pub. instance attribute of type datetime</li>
+<li><code>def test_updated_at_instantiation(self)</code> - Test updated_at is a pub. instance attribute of type datetime</li>
+<li><code>def test_diff_datetime_objs(self)</code> - Test that two BaseModel instances have different datetime objects</li>
+</ul>
+<p><a href="/tests/test_models/test_amenity.py">/test_models/test_amenity.py</a> - Contains the TestAmenityDocs class:</p>
+<ul>
+<li><code>def setUpClass(cls)</code> - Set up for the doc tests</li>
+<li><code>def test_pep8_conformance_amenity(self)</code> - Test that models/amenity.py conforms to PEP8</li>
+<li><code>def test_pep8_conformance_test_amenity(self)</code> - Test that tests/test_models/test_amenity.py conforms to PEP8</li>
+<li><code>def test_amenity_module_docstring(self)</code> - Test for the amenity.py module docstring</li>
+<li><code>def test_amenity_class_docstring(self)</code> - Test for the Amenity class docstring</li>
+</ul>
+<p><a href="/tests/test_models/test_city.py">/test_models/test_city.py</a> - Contains the TestCityDocs class:</p>
+<ul>
+<li><code>def setUpClass(cls)</code> - Set up for the doc tests</li>
+<li><code>def test_pep8_conformance_city(self)</code> - Test that models/city.py conforms to PEP8</li>
+<li><code>def test_pep8_conformance_test_city(self)</code> - Test that tests/test_models/test_city.py conforms to PEP8</li>
+<li><code>def test_city_module_docstring(self)</code> - Test for the city.py module docstring</li>
+<li><code>def test_city_class_docstring(self)</code> - Test for the City class docstring</li>
+</ul>
+<p><a href="/tests/test_models/test_file_storage.py">/test_models/test_file_storage.py</a> - Contains the TestFileStorageDocs class:</p>
+<ul>
+<li><code>def setUpClass(cls)</code> - Set up for the doc tests</li>
+<li><code>def test_pep8_conformance_file_storage(self)</code> - Test that models/file_storage.py conforms to PEP8</li>
+<li><code>def test_pep8_conformance_test_file_storage(self)</code> - Test that tests/test_models/test_file_storage.py conforms to PEP8</li>
+<li><code>def test_file_storage_module_docstring(self)</code> - Test for the file_storage.py module docstring</li>
+<li><code>def test_file_storage_class_docstring(self)</code> - Test for the FileStorage class docstring</li>
+</ul>
+<p><a href="/tests/test_models/test_place.py">/test_models/test_place.py</a> - Contains the TestPlaceDoc class:</p>
+<ul>
+<li><code>def setUpClass(cls)</code> - Set up for the doc tests</li>
+<li><code>def test_pep8_conformance_place(self)</code> - Test that models/place.py conforms to PEP8.</li>
+<li><code>def test_pep8_conformance_test_place(self)</code> - Test that tests/test_models/test_place.py conforms to PEP8.</li>
+<li><code>def test_place_module_docstring(self)</code> - Test for the place.py module docstring</li>
+<li><code>def test_place_class_docstring(self)</code> - Test for the Place class docstring</li>
+</ul>
+<p><a href="/tests/test_models/test_review.py">/test_models/test_review.py</a> - Contains the TestReviewDocs class:</p>
+<ul>
+<li><code>def setUpClass(cls)</code> - Set up for the doc tests</li>
+<li><code>def test_pep8_conformance_review(self)</code> - Test that models/review.py conforms to PEP8</li>
+<li><code>def test_pep8_conformance_test_review(self)</code> - Test that tests/test_models/test_review.py conforms to PEP8</li>
+<li><code>def test_review_module_docstring(self)</code> - Test for the review.py module docstring</li>
+<li><code>def test_review_class_docstring(self)</code> - Test for the Review class docstring</li>
+</ul>
+<p><a href="/tests/test_models/test_state.py">/test_models/state.py</a> - Contains the TestStateDocs class:</p>
+<ul>
+<li><code>def setUpClass(cls)</code> - Set up for the doc tests</li>
+<li><code>def test_pep8_conformance_state(self)</code> - Test that models/state.py conforms to PEP8</li>
+<li><code>def test_pep8_conformance_test_state(self)</code> - Test that tests/test_models/test_state.py conforms to PEP8</li>
+<li><code>def test_state_module_docstring(self)</code> - Test for the state.py module docstring</li>
+<li><code>def test_state_class_docstring(self)</code> - Test for the State class docstring</li>
+</ul>
+<p><a href="/tests/test_models/test_user.py">/test_models/user.py</a> - Contains the TestUserDocs class:</p>
+<ul>
+<li><code>def setUpClass(cls)</code> - Set up for the doc tests</li>
+<li><code>def test_pep8_conformance_user(self)</code> - Test that models/user.py conforms to PEP8</li>
+<li><code>def test_pep8_conformance_test_user(self)</code> - Test that tests/test_models/test_user.py conforms to PEP8</li>
+<li><code>def test_user_module_docstring(self)</code> - Test for the user.py module docstring</li>
+<li><code>def test_user_class_docstring(self)</code> - Test for the User class docstring</li>
+</ul>
+<h2 id="examples-of-use">Examples of use</h2>
+<pre class="hljs"><code><div>vagrantAirBnB_clone$./console.py
+(hbnb) help
+
+Documented commands (type help &lt;topic&gt;):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb) all MyModel
+** class doesn't exist **
+(hbnb) create BaseModel
+7da56403-cc45-4f1c-ad32-bfafeb2bb050
+(hbnb) all BaseModel
+[[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}]
+(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
+[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}
+(hbnb) destroy BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
+(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
+** no instance found **
+(hbnb) quit
+</div></code></pre>
+<h2 id="bugs">Bugs</h2>
+<p>No known bugs at this time.</p>
+<h2 id="authors">Authors</h2>
+<p>Alexa Orrico - <a href="https://github.com/alexaorrico">Github</a> / <a href="https://twitter.com/alexa_orrico">Twitter</a><br>
+Jennifer Huang - <a href="https://github.com/jhuang10123">Github</a> / <a href="https://twitter.com/earthtojhuang">Twitter</a><br>
+Jhoan Zamora - <a href="https://github.com/jzamora5">Github</a> / <a href="https://twitter.com/JhoanZamora10">Twitter</a><br>
+David Ovalle - <a href="https://github.com/Nukemenonai">Github</a> / <a href="https://twitter.com/disartDave">Twitter</a>
+Dominic Samo - <a href="https://github.com/DominicSamoes">Github</a></p>
+<p>Second part of Airbnb: Joann Vuong</p>
+<h2 id="license">License</h2>
+<p>Public Domain. No copy write protection.</p>
+
+</body>
+</html>

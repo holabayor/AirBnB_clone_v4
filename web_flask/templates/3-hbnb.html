@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     <!-- Import custom Javascript -->
-    <script type="text/javascript" src="../static/scripts/100-hbnb.js?{{ cache_id }}"></script>
+    <script type="text/javascript" src="../static/scripts/3-hbnb.js?{{ cache_id }}"></script>
 
     <title>AirBnb Clone</title>
   </head>
@@ -30,10 +30,10 @@
           <ul class="popover">
 	    {% for state in states.values()|sort(attribute='name') %}
             <li>
-	      <input type="checkbox" data-id="{{ state.id }}" data-name="{{ state.name }}"><h2>{{ state.name }}</h2>
+              <h2>{{ state.name }}</h2>
               <ul>
 	      {% for city in state.cities|sort(attribute='name') %}
-                <li><input type="checkbox" data-id="{{ city.id }}" data-name="{{ city.name }}">{{ city.name }}</li>
+                <li>{{ city.name }}</li>
 	      {% endfor %}
               </ul>
             </li>
